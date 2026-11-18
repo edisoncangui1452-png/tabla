@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#18392e" />
+    <meta name="description" content="Crea, rellena y copia tablas desde tu móvil." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Mi Tabla</title>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="5" width="24" height="22" rx="4" stroke="currentColor" stroke-width="2"/><path d="M4 12h24M4 19h24M12 12v15M20 12v15" stroke="currentColor" stroke-width="2"/></svg>
+          </span>
+          <span>mi tabla<span class="brand-dot">.</span></span>
+        </div>
+        <span class="topbar-label">TU ESPACIO DE TRABAJO</span>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <span class="eyebrow"><span class="eyebrow-line"></span> ORGANIZA TUS IDEAS</span>
+          <h1 id="page-title">Una tabla para<br /><em>todo lo que importa.</em></h1>
+          <p>Crea tu tabla, añade tus datos y cópiala cuando esté lista. Así de fácil.</p>
+        </section>
+
+        <section class="workspace" aria-label="Editor de tabla">
+          <div class="workspace-heading">
+            <div>
+              <span class="section-number">01 / CONFIGURACIÓN</span>
+              <h2>Diseña tu tabla</h2>
+            </div>
+            <span class="workspace-mark" aria-hidden="true">✳</span>
+          </div>
+
+          <form id="size-form" class="size-form">
+            <label class="field">
+              <span class="field-label">Filas</span>
+              <span class="number-control">
+                <button type="button" class="stepper" data-step="-1" data-target="rows" aria-label="Quitar una fila">−</button>
+                <input id="rows" name="rows" type="number" inputmode="numeric" min="1" max="100" value="4" required aria-label="Número de filas" />
+                <button type="button" class="stepper" data-step="1" data-target="rows" aria-label="Añadir una fila">+</button>
+              </span>
+            </label>
+            <span class="size-cross" aria-hidden="true">×</span>
+            <label class="field">
+              <span class="field-label">Columnas</span>
+              <span class="number-control">
+                <button type="button" class="stepper" data-step="-1" data-target="columns" aria-label="Quitar una columna">−</button>
+                <input id="columns" name="columns" type="number" inputmode="numeric" min="1" max="30" value="3" required aria-label="Número de columnas" />
+                <button type="button" class="stepper" data-step="1" data-target="columns" aria-label="Añadir una columna">+</button>
+              </span>
+            </label>
+            <button class="apply-button" type="submit">Aplicar tamaño <span aria-hidden="true">↗</span></button>
+          </form>
+          <p class="size-hint">Hasta 100 filas y 30 columnas. Cambiar el tamaño conserva los datos que quepan.</p>
+
+          <div class="divider"></div>
+
+          <div class="table-heading">
+            <div>
+              <span class="section-number">02 / TUS DATOS</span>
+              <h2>Rellena las celdas</h2>
+            </div>
+            <span id="table-count" class="count-pill">4 filas · 3 columnas</span>
+          </div>
+          <p class="table-hint">Toca cualquier celda para escribir. Desliza la tabla hacia los lados si lo necesitas.</p>
+          <div class="table-scroll" role="region" aria-label="Tabla editable" tabindex="0">
+            <table id="editor-table" aria-label="Introduce los datos de tu tabla"></table>
+          </div>
+
+          <div class="actions">
+            <button id="copy-button" class="copy-button" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="11" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h1" stroke="currentColor" stroke-width="1.8"/></svg>
+              Copiar tabla
+              <span aria-hidden="true">↗</span>
+            </button>
+            <button id="clear-button" class="clear-button" type="button">Borrar datos</button>
+          </div>
+          <p class="copy-hint">Pégala en Excel, Google Sheets, un documento o un mensaje.</p>
+        </section>
+
+        <footer>HECHO PARA PONER TUS IDEAS EN ORDEN <span aria-hidden="true">✳</span></footer>
+      </main>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

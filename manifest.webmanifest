@@ -1,0 +1,18 @@
+{
+  "name": "Mi Tabla",
+  "short_name": "Mi Tabla",
+  "description": "Crea, rellena y copia tablas desde tu móvil.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f7f0",
+  "theme_color": "#18392e",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
